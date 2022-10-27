@@ -1,0 +1,139 @@
+##
+# Choose Your Own Adventure with Subprograms
+#
+# @ Alisha M
+# @
+# @date 2022/04/12 - LastModified
+##
+
+# Create subprograms for choices
+def msgStoryIntro():
+  print("You are in a deep forest, not exactly sure of where you are, you try to decide whether you want to go to your nearby friend's cabin or try and get out of the forest.")
+  print()
+
+def msgCabinA(): 
+  print("The cabin is pitch black and eerily cold, you're not sure if your friend is there.")
+  print()
+
+def msgFlashlight():
+  print()
+  print("You find your friend sitting quietly in the corner of the room. He repeatedly bugs you to check the bathroom.")
+
+def msgBathroomCheck():
+  print()
+  print("Because of his nagging you go check the washroom, you hear knocking. You glance at the window to the left but there's nothing there, your friend comes up to check with you, you hear it again. This time you look in the mirror, the knocking is coming from there; you stare. The expression on your friend's face doesn't seem to match their relfection in the mirror, the reflection whispers 'run'. ")
+
+def msgCabinLight():
+  print()
+  print("You walk down the stairs and move your hand reaching for a light switch. You find one and an old bulb flickers to life, you see a cold chest in front of you, your phone battery is at 3% and you need a flashlight to get around the house.")
+  print()
+
+def msgHauntedChest():
+  print()
+  print("You open the chest to find a rugged old board game. There's a slip of paper with some writing on it, you skim through it and notice a rusty ceiling board begin to creak and shift. A bloody hand bolts down and pulls you up by your hair.")
+  
+def msgClosedChest():
+  print()
+  print("You head back upstairs and see your friend standing at the top of the staircase. He has a sinister grim look on his face; he rushes down at you with a knife in his hand and exclaims 'dinner is here' while three brutish looking men charge at you with him.")
+
+def msgForestB():
+  print("As you keep walking you notice your phone battery is about to die and your flashlight will run out; you see a house up ahead.")
+  print()
+def msgHouse():
+  print("An old lady opens the door with a kind smile, she asks what happened and then asks you if you'd like to come and stay the night.")
+  print()
+
+def msgEnterHouse():
+  print()
+  print("She serves you a cup of tea. You guys have some light conversation and she talks about how she's a retired nurse. Slowly you notice your vision beginning to blur, she mumbles that she was fired from the hospital for malpractice. With a grin she walks towards you while you go unconscious and calls someone saying 'lots of new product arrived.'")
+
+def msgLeaveHouse():
+  print()
+  print("She lends you a map, as you follow it you find yourself back at the house where a tall pale man is standing glaring at you, all of a sudden he runs towards you. You black out, hours later you find yourself at the old lady's house strapped to a gurney. She stands above you with tools and says 'Your fresh meat will sell at a hefty price!'")
+
+def msgHitchhike():
+  print("After walking for roughly an hour you reach the roads, you're out of the woods! You decide to hitchhike; a car passes by and you catch a ride. ")
+  print()
+
+def msgJoinDriver():
+  print()
+  print("You guys drive for a couple hours, he cracks a few jokes and you do karaoke in the car. He drops you off at your house and you finally feel out of harm's way. However, over the next two weeks you notice a car circling around your house everyday, you don't think much of it. That is until, one day as you're getting ready for bed you go to lock your door and notice the man you hitchhiked with standing at your door with a blank stare and an eerie grin, he's holding a chainsaw...")
+
+def msgHappyEnding():
+  print()
+  print("Instead you give him the address to a cafe near your house, he drops you off and you stick around there for an hour to unwind and make sure that he's gone. Afterwards you grab the bus and get home, you're safe :)")
+  
+# INTRO
+print()
+intro = "Welcome to the choose your own story game! "
+completed_intro = intro.center(73, " ")
+print(completed_intro)
+print()
+
+# Tell some of the story
+msgStoryIntro()
+
+# Ask the user
+where = input("Do you A: Go to your friend's cabin OR B: Find your way out of the forest: ")
+
+print()
+# Splitting the story
+if (where.upper() == "A"):
+    msgCabinA()
+  
+    cabin_light = input("Do you turn on your phone's flashlight? yes/no: ")
+  
+    if (cabin_light.lower() == "yes"):
+      msgFlashlight()
+      
+      print()
+      bathroom_check = input("Do you go to check the bathroom? ")
+      if (bathroom_check.lower() == "yes" or "no"):
+        
+        msgBathroomCheck()
+        # ENDING ONE
+        
+    if (cabin_light.lower() == "no"):
+      msgCabinLight()
+      
+      open_chest = input("Do you open the chest? yes/no: ")
+      if (open_chest.lower() == "yes"):
+        msgHauntedChest()
+        # ENDING TWO
+        
+      if (open_chest.lower() == "no"):
+        msgClosedChest()
+  # ENDING THREE
+
+elif (where.upper() == "B"):
+    msgForestB()
+    enter_house = input("Do you go to the house? yes/no: ")
+    print()
+  
+    if (enter_house.lower() == "yes"):
+      msgHouse()
+      old_lady_entrance = input("Do you want to stay the night? yes/no: ")
+      if (old_lady_entrance.lower() == "yes"):
+        msgEnterHouse()
+        
+      #ENDING FOUR
+      if (old_lady_entrance.lower() == "no"):
+        msgLeaveHouse()
+        # ENDING FIVE
+        print()
+    if (enter_house.lower() == "no"):
+      msgHitchhike()
+      hitchhiker = input("Do you give the driver your address? yes/no: ")
+      if (hitchhiker.lower() == "yes"):
+        msgJoinDriver()
+      # ENDING SIX
+        
+      if (hitchhiker.lower() == "no"):
+        msgHappyEnding()
+        # ENDING SEVEN
+
+
+
+
+print()    
+print("The End", end="")
